@@ -87,7 +87,8 @@ export function Reveal({
   className?: string;
   as?: "div" | "li" | "article";
 }) {
-  const M = motion[as];
+  // one concrete component type keeps TypeScript happy across div/li/article
+  const M = motion[as] as typeof motion.div;
   return (
     <M
       className={className}
