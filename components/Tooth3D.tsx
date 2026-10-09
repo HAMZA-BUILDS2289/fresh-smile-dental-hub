@@ -103,7 +103,9 @@ function Orbs() {
   return (
     <>
       {items.map((it, i) => (
-        <mesh key={i} ref={(el) => (refs.current[i] = el)}>
+        <mesh key={i} ref={(el) => {
+            refs.current[i] = el;
+          }}>
           <sphereGeometry args={[it.s, 24, 24]} />
           <meshPhysicalMaterial color="#a5f3fc" roughness={0.05} clearcoat={1} transmission={0.6} thickness={0.5} transparent opacity={0.85} />
         </mesh>
